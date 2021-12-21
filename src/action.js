@@ -1,15 +1,19 @@
 import axios from "axios";
 
-export const fetchPosts = async () => {    
+export const fetchPosts = () => async(dispatch,getState) => {
     
-    const response =await  axios.get("http://worldcup.sfg.io/matches");
+    dispatch({type:"FETCH_POSTS_REQUEST"});
 
-    console.log(response.data);
-
-    return {
-        type : "FETCH_POSTS",
+    try{
+        const response = await axios.get("http://worldcup.sfg.io/matches");
+        console.log(response.data);
+        console.log("In action.js");
+        dispatch({type:"FETCH_POSTS_SUCCESS",
         payload:response.data
+        });
     }
-        
+        catch(error){
+            dispatch({type:"FETCH_POSTS_FAILURE",error});
+        }
 }
     

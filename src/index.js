@@ -10,13 +10,14 @@ import postReducer from './reducers';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import autoLogger from './autologger';
 
-// const enhancer = compose(
-//   applyMiddleware(thunk),
-//   autoLogger()
-// )
+const enhancer = compose(
+  applyMiddleware(thunk),
+  autoLogger()
+)
 
-const store = createStore(postReducer,applyMiddleware(thunk));
-//const store = createStore(postReducer,composeWithDevTools(enhancer));
+console.log("In index.js");
+//const store = createStore(postReducer,applyMiddleware(thunk));
+const store = createStore(postReducer,composeWithDevTools(enhancer));
 
 ReactDOM.render(
   <Provider store={store}>

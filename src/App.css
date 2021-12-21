@@ -13,6 +13,16 @@
   }
 }
 
+.tableStyle{
+  border: 2px solid black;
+  margin:50px;
+}
+.dataTable{
+  height:100px;
+  width:100px;
+  border: 1px solid grey;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
